@@ -25,7 +25,7 @@ exec tail -F ./logs/es.log & # this tail on the elasticsearch logs is a temporar
 exec java -jar lib/sonar-application-$SONAR_VERSION.jar \
   -Dsonar.log.console=true \
   -Dsonar.jdbc.username="$SONARQUBE_JDBC_USERNAME" \
-  -Dsonar.jdbc.password="$SONARQUBE_JDBC_PASSWORD" \
+  -Dsonar.jdbc.password="$(cat ${SONARQUBE_JDBC_PASSWORD_FILE}" \
   -Dsonar.jdbc.url="$SONARQUBE_JDBC_URL" \
   -Dsonar.web.javaAdditionalOpts="$SONARQUBE_WEB_JVM_OPTS -Djava.security.egd=file:/dev/./urandom" \
   "${sq_opts[@]}" \
