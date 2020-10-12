@@ -37,10 +37,6 @@ RUN set -x \
     && chown -R sonarqube:sonarqube sonarqube \
     && rm sonarqube.zip* \
     && rm -rf $SONARQUBE_HOME/bin/*
-
-RUN set -x \
-    && cd /opt/sonarqube/lib \
-    && curl -o mysql.jar -fSL https://repo1.maven.org/maven2/com/weicoder/fork/mysql-connector-java-jdk11/8.0.19/mysql-connector-java-jdk11-8.0.19.jar
     
 VOLUME "$SONARQUBE_HOME/data"
 
